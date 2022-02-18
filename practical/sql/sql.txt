@@ -1,0 +1,197 @@
+nter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use rima;
+Database changed
+mysql> select * from officers;
++----+--------+------------+
+| id | name   | address    |
++----+--------+------------+
+|  1 | riya   | joynagar   |
+|  2 | rima   | barasat    |
+|  3 | sayani | mathurapur |
+|  4 | akash  | kolkata    |
++----+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student2;
++----+--------+-------------+
+| id | name   | cource_name |
++----+--------+-------------+
+|  1 | akash  | ee          |
+|  2 | keya   | ece         |
+|  3 | aditya | it          |
+|  4 | abhik  | me          |
+|  5 | ajay   | me          |
++----+--------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select officers.name,officers.address,student2.name from officers inner join student2 on officers.id=student2.id;
++--------+------------+--------+
+| name   | address    | name   |
++--------+------------+--------+
+| riya   | joynagar   | akash  |
+| rima   | barasat    | keya   |
+| sayani | mathurapur | aditya |
+| akash  | kolkata    | abhik  |
++--------+------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select officers.name,officers.address,student2.cource_name from officers left join student2 on officers.id=student2.id;
++--------+------------+-------------+
+| name   | address    | cource_name |
++--------+------------+-------------+
+| riya   | joynagar   | ee          |
+| rima   | barasat    | ece         |
+| sayani | mathurapur | it          |
+| akash  | kolkata    | me          |
++--------+------------+-------------+
+4 rows in set (0.05 sec)
+
+mysql> select officers.name,officers.address,student2.cource_name from officers right join student2 on officers.id=student2.id;
++--------+------------+-------------+
+| name   | address    | cource_name |
++--------+------------+-------------+
+| riya   | joynagar   | ee          |
+| rima   | barasat    | ece         |
+| sayani | mathurapur | it          |
+| akash  | kolkata    | me          |
+| NULL   | NULL       | me          |
++--------+------------+-------------+
+5 rows in set (0.01 sec)
+
+mysql> select officers.name,officers.address,student2.cource_name from officers full join student2 on officers.id=student2.id;
+ERROR 1054 (42S22): Unknown column 'officers.name' in 'field list'
+mysql> select officers.name,officers.address,student2.cource_name,student2.name from officers right join student2 on officers.id=student2.id;
++--------+------------+-------------+--------+
+| name   | address    | cource_name | name   |
++--------+------------+-------------+--------+
+| riya   | joynagar   | ee          | akash  |
+| rima   | barasat    | ece         | keya   |
+| sayani | mathurapur | it          | aditya |
+| akash  | kolkata    | me          | abhik  |
+| NULL   | NULL       | me          | ajay   |
++--------+------------+-------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select officers.id, officers.name,officers.address,student2.id,student2.cource_name,student2.name from officers cross join student2 ;
++----+--------+------------+----+-------------+--------+
+| id | name   | address    | id | cource_name | name   |
++----+--------+------------+----+-------------+--------+
+|  4 | akash  | kolkata    |  1 | ee          | akash  |
+|  3 | sayani | mathurapur |  1 | ee          | akash  |
+|  2 | rima   | barasat    |  1 | ee          | akash  |
+|  1 | riya   | joynagar   |  1 | ee          | akash  |
+|  4 | akash  | kolkata    |  2 | ece         | keya   |
+|  3 | sayani | mathurapur |  2 | ece         | keya   |
+|  2 | rima   | barasat    |  2 | ece         | keya   |
+|  1 | riya   | joynagar   |  2 | ece         | keya   |
+|  4 | akash  | kolkata    |  3 | it          | aditya |
+|  3 | sayani | mathurapur |  3 | it          | aditya |
+|  2 | rima   | barasat    |  3 | it          | aditya |
+|  1 | riya   | joynagar   |  3 | it          | aditya |
+|  4 | akash  | kolkata    |  4 | me          | abhik  |
+|  3 | sayani | mathurapur |  4 | me          | abhik  |
+|  2 | rima   | barasat    |  4 | me          | abhik  |
+|  1 | riya   | joynagar   |  4 | me          | abhik  |
+|  4 | akash  | kolkata    |  5 | me          | ajay   |
+|  3 | sayani | mathurapur |  5 | me          | ajay   |
+|  2 | rima   | barasat    |  5 | me          | ajay   |
+|  1 | riya   | joynagar   |  5 | me          | ajay   |
++----+--------+------------+----+-------------+--------+
+20 rows in set (0.09 sec)
+
+mysql> select address, count(*) from officers group by address;
++------------+----------+
+| address    | count(*) |
++------------+----------+
+| joynagar   |        1 |
+| barasat    |        1 |
+| mathurapur |        1 |
+| kolkata    |        1 |
++------------+----------+
+4 rows in set (0.10 sec)
+
+mysql> alter tables officers add working_hours varchar(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tables officers add working_hours varchar(10)' at line 1
+mysql> alter tables officers add working_hours int(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tables officers add working_hours int(10)' at line 1
+mysql> alter tables officers add coloumn working_hours int(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tables officers add coloumn working_hours int(10)' at line 1
+mysql> alter table officers add coloumn working_hours int(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'working_hours int(10)' at line 1
+mysql> alter table officers add column working_hours int(10);
+Query OK, 0 rows affected, 1 warning (2.05 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> alter table officers add column working_hours int(10);
+ERROR 1060 (42S21): Duplicate column name 'working_hours'
+mysql> select * from officers;
++----+--------+------------+---------------+
+| id | name   | address    | working_hours |
++----+--------+------------+---------------+
+|  1 | riya   | joynagar   |          NULL |
+|  2 | rima   | barasat    |          NULL |
+|  3 | sayani | mathurapur |          NULL |
+|  4 | akash  | kolkata    |          NULL |
++----+--------+------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> update officers set working_hours =' 2 ' where id=1;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update officers set working_hours =' 5 ' where id=3;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update officers set working_hours =' 8 ' where id=4;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from officers;
++----+--------+------------+---------------+
+| id | name   | address    | working_hours |
++----+--------+------------+---------------+
+|  1 | riya   | joynagar   |             2 |
+|  2 | rima   | barasat    |          NULL |
+|  3 | sayani | mathurapur |             5 |
+|  4 | akash  | kolkata    |             8 |
++----+--------+------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> update officers set working_hours =' 16 ' where id=2;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from officers;
++----+--------+------------+---------------+
+| id | name   | address    | working_hours |
++----+--------+------------+---------------+
+|  1 | riya   | joynagar   |             2 |
+|  2 | rima   | barasat    |            16 |
+|  3 | sayani | mathurapur |             5 |
+|  4 | akash  | kolkata    |             8 |
++----+--------+------------+---------------+
+4 rows in set (0.06 sec)
+
+mysql> select  name,sum(working_hours) as "total working_hours" from officers group by name;
++--------+---------------------+
+| name   | total working_hours |
++--------+---------------------+
+| riya   |                   2 |
+| rima   |                  16 |
+| sayani |                   5 |
+| akash  |                   8 |
++--------+---------------------+
+4 rows in set (0.06 sec)
