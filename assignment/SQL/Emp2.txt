@@ -1,0 +1,299 @@
+
+mysql> Create table EMP1(ID int (2),Name Varchar (10),Basic decimal (6, 2),Designation Varchar (10),Age int (2));
+Query OK, 0 rows affected, 2 warnings (9.84 sec)
+
+mysql> INSERT INTO EMP1 VALUES(1,'ROHIT',6700,'MANAGER',24);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO EMP1 VALUES(2,'SUNIL',6200,'ENGINEER',27);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO EMP1 VALUES(3,'PAYAL',6300,'ENGINEER',25);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO EMP1 VALUES(4,'KUNAL',6700,'TRAINEE',28);
+Query OK, 1 row affected (0.15 sec)
+
+mysql> INSERT INTO EMP1 VALUES(5,'SUNITA',6230,'TRAINEE',26);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO EMP1 VALUES(6,'BIMAL',7000,'TRAINEE',25);
+Query OK, 1 row affected (0.22 sec)
+
+mysql> select * from EMP1;
++------+--------+---------+-------------+------+
+| ID   | Name   | Basic   | Designation | Age  |
++------+--------+---------+-------------+------+
+|    1 | ROHIT  | 6700.00 | MANAGER     |   24 |
+|    2 | SUNIL  | 6200.00 | ENGINEER    |   27 |
+|    3 | PAYAL  | 6300.00 | ENGINEER    |   25 |
+|    4 | KUNAL  | 6700.00 | TRAINEE     |   28 |
+|    5 | SUNITA | 6230.00 | TRAINEE     |   26 |
+|    6 | BIMAL  | 7000.00 | TRAINEE     |   25 |
++------+--------+---------+-------------+------+
+6 rows in set (0.00 sec)
+
+mysql>
+ Create table EMP_trainee(Emp_ID int (2),Name Varchar (10),Basic decimal (6, 2),Designation Varchar (10),Age int (2));
+Query OK, 0 rows affected, 2 warnings (2.82 sec)
+
+mysql> INSERT INTO EMP_trainee VALUES(6,'BIMAL',7000,'TRAINEE',25);
+Query OK, 1 row affected (0.30 sec)
+
+mysql> INSERT INTO EMP_trainee VALUES(3,'PAYAL',6300,'Trainee',25);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO EMP_trainee VALUES(1,'ROHIT',6700,'TRainee',24);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO EMP_trainee VALUES(5,'SUNITA',6230,'TRAINEE',26);
+Query OK, 1 row affected (0.22 sec)
+
+mysql> INSERT INTO EMP_trainee VALUES(4,'KUNAL',6700,'TRAINEE',28);
+Query OK, 1 row affected (0.24 sec)
+
+mysql> INSERT INTO EMP_trainee VALUES(2,'SUNIL',6200,'TRainee',27);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> select * from EMP_trainee;
++--------+--------+---------+-------------+------+
+| Emp_ID | Name   | Basic   | Designation | Age  |
++--------+--------+---------+-------------+------+
+|      6 | BIMAL  | 7000.00 | TRAINEE     |   25 |
+|      3 | PAYAL  | 6300.00 | Trainee     |   25 |
+|      1 | ROHIT  | 6700.00 | TRainee     |   24 |
+|      5 | SUNITA | 6230.00 | TRAINEE     |   26 |
+|      4 | KUNAL  | 6700.00 | TRAINEE     |   28 |
+|      2 | SUNIL  | 6200.00 | TRainee     |   27 |
++--------+--------+---------+-------------+------+
+6 rows in set (0.00 sec)
+Alter table EMP1 add  skills varchar(10);
+Query OK, 0 rows affected (2.44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from EMP1;
++------+--------+---------+-------------+------+--------+
+| ID   | Name   | Basic   | Designation | Age  | skills |
++------+--------+---------+-------------+------+--------+
+|    1 | ROHIT  | 6700.00 | MANAGER     |   24 | NULL   |
+|    2 | SUNIL  | 6200.00 | ENGINEER    |   27 | NULL   |
+|    3 | PAYAL  | 6300.00 | ENGINEER    |   25 | NULL   |
+|    4 | KUNAL  | 6700.00 | TRAINEE     |   28 | NULL   |
+|    5 | SUNITA | 6230.00 | TRAINEE     |   26 | NULL   |
+|    6 | BIMAL  | 7000.00 | TRAINEE     |   25 | NULL   |
++------+--------+---------+-------------+------+--------+
+6 rows in set (0.00 sec)
+
+mysql> Alter table EMP1 add  DOJ date;
+Query OK, 0 rows affected (1.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from EMP1;
++------+--------+---------+-------------+------+--------+------+
+| ID   | Name   | Basic   | Designation | Age  | skills | DOJ  |
++------+--------+---------+-------------+------+--------+------+
+|    1 | ROHIT  | 6700.00 | MANAGER     |   24 | NULL   | NULL |
+|    2 | SUNIL  | 6200.00 | ENGINEER    |   27 | NULL   | NULL |
+|    3 | PAYAL  | 6300.00 | ENGINEER    |   25 | NULL   | NULL |
+|    4 | KUNAL  | 6700.00 | TRAINEE     |   28 | NULL   | NULL |
+|    5 | SUNITA | 6230.00 | TRAINEE     |   26 | NULL   | NULL |
+|    6 | BIMAL  | 7000.00 | TRAINEE     |   25 | NULL   | NULL |
++------+--------+---------+-------------+------+--------+------+
+6 rows in set (0.06 sec)
+mysql> update  EMP1 set skills = 'c' where ID = 1;
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set skills = 'JAVA' where ID = 2;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set skills = 'PYTHON' where ID = 3;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set skills = 'C++' where ID = 4;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set skills = 'PHP' where ID = 5;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set skills = 'DOT NET' where ID = 6;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from EMP1;
++------+--------+---------+-------------+------+---------+------+
+| ID   | Name   | Basic   | Designation | Age  | skills  | DOJ  |
++------+--------+---------+-------------+------+---------+------+
+|    1 | ROHIT  | 6700.00 | MANAGER     |   24 | c       | NULL |
+|    2 | SUNIL  | 6200.00 | ENGINEER    |   27 | JAVA    | NULL |
+|    3 | PAYAL  | 6300.00 | ENGINEER    |   25 | PYTHON  | NULL |
+|    4 | KUNAL  | 6700.00 | TRAINEE     |   28 | C++     | NULL |
+|    5 | SUNITA | 6230.00 | TRAINEE     |   26 | PHP     | NULL |
+|    6 | BIMAL  | 7000.00 | TRAINEE     |   25 | DOT NET | NULL |
++------+--------+---------+-------------+------+---------+------+
+6 rows in set (0.00 sec)
+
+mysql> update  EMP1 set DOJ = '1996-11-02' where ID = 1;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set DOJ = '1998-10-12' where ID = 2;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set DOJ = '2005-05-07' where ID = 3;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set DOJ = '2007-07-24' where ID = 4;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set DOJ = '2003-09-20' where ID = 5;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set DOJ = '1989-09-26' where ID = 6;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from EMP1;
++------+--------+---------+-------------+------+---------+------------+
+| ID   | Name   | Basic   | Designation | Age  | skills  | DOJ        |
++------+--------+---------+-------------+------+---------+------------+
+|    1 | ROHIT  | 6700.00 | MANAGER     |   24 | c       | 1996-11-02 |
+|    2 | SUNIL  | 6200.00 | ENGINEER    |   27 | JAVA    | 1998-10-12 |
+|    3 | PAYAL  | 6300.00 | ENGINEER    |   25 | PYTHON  | 2005-05-07 |
+|    4 | KUNAL  | 6700.00 | TRAINEE     |   28 | C++     | 2007-07-24 |
+|    5 | SUNITA | 6230.00 | TRAINEE     |   26 | PHP     | 2003-09-20 |
+|    6 | BIMAL  | 7000.00 | TRAINEE     |   25 | DOT NET | 1989-09-26 |
++------+--------+---------+-------------+------+---------+------------+
+6 rows in set (0.05 sec)
+ update  EMP1 set Designation = 'Programmer_Trainee' where ID = 2;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set Designation = 'Programmer_Trainee' where ID = 3;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set Designation = 'Programmer_Trainee' where ID = 4;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set Designation = 'Programmer_Trainee' where ID = 5;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set Designation = 'Programmer_Trainee' where ID = 6;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  EMP1 set Designation = 'Programmer_Trainee' where ID = 1;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from EMP1;
++------+--------+---------+--------------------+------+---------+------------+
+| ID   | Name   | Basic   | Designation        | Age  | skills  | DOJ        |
++------+--------+---------+--------------------+------+---------+------------+
+|    1 | ROHIT  | 6700.00 | Programmer_Trainee |   24 | c       | 1996-11-02 |
+|    2 | SUNIL  | 6200.00 | Programmer_Trainee |   27 | JAVA    | 1998-10-12 |
+|    3 | PAYAL  | 6300.00 | Programmer_Trainee |   25 | PYTHON  | 2005-05-07 |
+|    4 | KUNAL  | 6700.00 | Programmer_Trainee |   28 | C++     | 2007-07-24 |
+|    5 | SUNITA | 6230.00 | Programmer_Trainee |   26 | PHP     | 2003-09-20 |
+|    6 | BIMAL  | 7000.00 | Programmer_Trainee |   25 | DOT NET | 1989-09-26 |
++------+--------+---------+--------------------+------+---------+------------+
+6 rows in set (0.00 sec)
+
+mysql> ALTER TABLE `riya`.`emp1` CHANGE COLUMN `ID` `ID` VARCHAR(5) NULL DEFAULT NULL ;
+Query OK, 6 rows affected (4.43 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+ select * from EMP1;
++------+--------+---------+--------------------+------+---------+------------+
+| ID   | Name   | Basic   | Designation        | Age  | skills  | DOJ        |
++------+--------+---------+--------------------+------+---------+------------+
+| 1    | ROHIT  | 6700.00 | Programmer_Trainee |   24 | c       | 1996-11-02 |
+| 2    | SUNIL  | 6200.00 | Programmer_Trainee |   27 | JAVA    | 1998-10-12 |
+| 3    | PAYAL  | 6300.00 | Programmer_Trainee |   25 | PYTHON  | 2005-05-07 |
+| 4    | KUNAL  | 6700.00 | Programmer_Trainee |   28 | C++     | 2007-07-24 |
+| 5    | SUNITA | 6230.00 | Programmer_Trainee |   26 | PHP     | 2003-09-20 |
+| 6    | BIMAL  | 7000.00 | Programmer_Trainee |   25 | DOT NET | 1989-09-26 |
++------+--------+---------+--------------------+------+---------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from EMP_trainee;
++--------+--------+---------+-------------+------+
+| Emp_ID | Name   | Basic   | Designation | Age  |
++--------+--------+---------+-------------+------+
+|      6 | BIMAL  | 7000.00 | TRAINEE     |   25 |
+|      3 | PAYAL  | 6300.00 | Trainee     |   25 |
+|      1 | ROHIT  | 6700.00 | TRainee     |   24 |
+|      5 | SUNITA | 6230.00 | TRAINEE     |   26 |
+|      4 | KUNAL  | 6700.00 | TRAINEE     |   28 |
+|      2 | SUNIL  | 6200.00 | TRainee     |   27 |
++--------+--------+---------+-------------+------+
+6 rows in set (0.13 sec)
+ ALTER TABLE `riya`.`emp1` CHANGE COLUMN `Age` `Age_in_years` INT NULL DEFAULT NULL ;
+Query OK, 0 rows affected (0.99 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from EMP1;
++------+--------+---------+--------------------+--------------+---------+------------+
+| ID   | Name   | Basic   | Designation        | Age_in_years | skills  | DOJ        |
++------+--------+---------+--------------------+--------------+---------+------------+
+| 1    | ROHIT  | 6700.00 | Programmer_Trainee |           24 | c       | 1996-11-02 |
+| 2    | SUNIL  | 6200.00 | Programmer_Trainee |           27 | JAVA    | 1998-10-12 |
+| 3    | PAYAL  | 6300.00 | Programmer_Trainee |           25 | PYTHON  | 2005-05-07 |
+| 4    | KUNAL  | 6700.00 | Programmer_Trainee |           28 | C++     | 2007-07-24 |
+| 5    | SUNITA | 6230.00 | Programmer_Trainee |           26 | PHP     | 2003-09-20 |
+| 6    | BIMAL  | 7000.00 | Programmer_Trainee |           25 | DOT NET | 1989-09-26 |
++------+--------+---------+--------------------+--------------+---------+------------+
+6 rows in set (0.01 sec)
+alter table EMP_trainee drop  Age;
+Query OK, 0 rows affected (3.39 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from EMP_trainee;
++--------+--------+---------+-------------+
+| Emp_ID | Name   | Basic   | Designation |
++--------+--------+---------+-------------+
+|      6 | BIMAL  | 7000.00 | TRAINEE     |
+|      3 | PAYAL  | 6300.00 | Trainee     |
+|      1 | ROHIT  | 6700.00 | TRainee     |
+|      5 | SUNITA | 6230.00 | TRAINEE     |
+|      4 | KUNAL  | 6700.00 | TRAINEE     |
+|      2 | SUNIL  | 6200.00 | TRainee     |
++--------+--------+---------+-------------+
+6 rows in set (0.00 sec)
+alter table EMP_trainee drop column name,drop column Designation;
+Query OK, 0 rows affected (3.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from EMP_trainee;
++--------+---------+
+| Emp_ID | Basic   |
++--------+---------+
+|      6 | 7000.00 |
+|      3 | 6300.00 |
+|      1 | 6700.00 |
+|      5 | 6230.00 |
+|      4 | 6700.00 |
+|      2 | 6200.00 |
++--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> drop table EMP_trainee;
+Query OK, 0 rows affected (0.59 sec)
+ alter table EMP1 rename to EMP_Mgr_Engr;
+Query OK, 0 rows affected (0.60 sec)
+
+mysql> Truncate  EMP_Mgr_Engr;
+Query OK, 0 rows affected (1.51 sec)
+
+mysql> select * from EMP_Mgr_Engr;
+Empty set (0.04 sec)
