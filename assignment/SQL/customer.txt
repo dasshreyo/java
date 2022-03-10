@@ -1,0 +1,148 @@
+use riya;
+create table Customer(cus_id varchar(10) primary key ,F_Name varchar(14),L_Name varchar(15),Area char(20),Phone_No bigint (12),Dob datetime,Payment decimal (6,2));
+insert into  Customer values('A01','IVan','Ross','SA',6125467,'1986-01-15',800.50);
+insert into  Customer values('A02','Vandana','Ray','MU',5560379,'1987-12-20',1000.75);
+INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Phone_No`, `Dob`, `Payment`) VALUES ('A04', 'Basu', 'Navindi', 'BA', 6125401, '1956-02-25', 860.00);
+INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Dob`, `Payment`) VALUES ('A05', 'Ravi', 'Shridhar', 'NA', '1989-02-15', 500.50);
+INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Phone_No`, `Dob`, `Payment`) VALUES ('A06', 'Rukmini', 'Aiyer', 'GH', 5125274, '1987-07-23', 1500.50);
+
+mysql> select * from Customer;
++--------+---------+----------+------+------------+---------------------+---------+
+| cus_id | F_Name  | L_Name   | Area | Phone_No   | Dob                 | Payment |
++--------+---------+----------+------+------------+---------------------+---------+
+| A01    | IVan    | Ross     | SA   |    6125467 | 1986-01-15 00:00:00 |  800.50 |
+| A02    | Vandana | Ray      | MU   | 9800824944 | 1987-12-20 00:00:00 | 1000.75 |
+| A03    | Pramada | Jauguste | DA   |    4560389 | 1967-07-15 00:00:00 |  500.00 |
+| A04    | Basu    | Navindi  | BA   | 7001339133 | 1956-02-25 00:00:00 |  860.00 |
+| A05    | Ravi    | Shridhar | NA   |       NULL | 1989-02-15 00:00:00 |  500.50 |
+| A06    | Rukmini | Aiyer    | GH   |    5125274 | 1987-07-23 00:00:00 | 1500.50 |
++--------+---------+----------+------+------------+---------------------+---------+
+ Update  Customer set Phone_No = 9800824944 where Cus_id ='A02';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  Update  Customer set Phone_No = 7001339133 where Cus_id ='A04';
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Customer;
++--------+---------+----------+------+------------+---------------------+---------+
+| cus_id | F_Name  | L_Name   | Area | Phone_No   | Dob                 | Payment |
++--------+---------+----------+------+------------+---------------------+---------+
+| A01    | IVan    | Ross     | SA   |    6125467 | 1986-01-15 00:00:00 |  800.50 |
+| A02    | Vandana | Ray      | MU   | 9800824944 | 1987-12-20 00:00:00 | 1000.75 |
+| A03    | Pramada | Jauguste | DA   |    4560389 | 1967-07-15 00:00:00 |  500.00 |
+| A04    | Basu    | Navindi  | BA   | 7001339133 | 1956-02-25 00:00:00 |  860.00 |
+| A05    | Ravi    | Shridhar | NA   |       NULL | 1989-02-15 00:00:00 |  500.50 |
+| A06    | Rukmini | Aiyer    | GH   |    5125274 | 1987-07-23 00:00:00 | 1500.50 |
++--------+---------+----------+------+------------+---------------------+---------+
+6 rows in set (0.00 sec)
+ update  Customer set Dob = '1996-11-02' where Cus_id = 'A01';
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  Customer set Dob = '2004-06-10' where Cus_id = 'A05';
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Customer;
++--------+---------+----------+------+------------+---------------------+---------+
+| cus_id | F_Name  | L_Name   | Area | Phone_No   | Dob                 | Payment |
++--------+---------+----------+------+------------+---------------------+---------+
+| A01    | IVan    | Ross     | SA   |    6125467 | 1996-11-02 00:00:00 |  800.50 |
+| A02    | Vandana | Ray      | MU   | 9800824944 | 1987-12-20 00:00:00 | 1000.75 |
+| A03    | Pramada | Jauguste | DA   |    4560389 | 1967-07-15 00:00:00 |  500.00 |
+| A04    | Basu    | Navindi  | BA   | 7001339133 | 1956-02-25 00:00:00 |  860.00 |
+| A05    | Ravi    | Shridhar | NA   |       NULL | 2004-06-10 00:00:00 |  500.50 |
+| A06    | Rukmini | Aiyer    | GH   |    5125274 | 1987-07-23 00:00:00 | 1500.50 |
++--------+---------+----------+------+------------+---------------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> delete from Customer where F_Name ='IVan';
+Query OK, 1 row affected (0.12 sec)
+
+mysql> delete from Customer where F_Name ='Vandana';
+Query OK, 1 row affected (0.19 sec)
+
+mysql> delete from Customer where F_Name ='Basu';
+Query OK, 1 row affected (0.15 sec)
+
+mysql> delete from Customer where F_Name ='Rabi';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from Customer where F_Name ='Rukmini';
+Query OK, 1 row affected (0.13 sec)
+
+mysql> delete from Customer where F_Name ='Pramada';
+Query OK, 1 row affected (0.23 sec)
+
+mysql> select * from Customer;
++--------+--------+----------+------+----------+---------------------+---------+
+| cus_id | F_Name | L_Name   | Area | Phone_No | Dob                 | Payment |
++--------+--------+----------+------+----------+---------------------+---------+
+| A05    | Ravi   | Shridhar | NA   |     NULL | 2004-06-10 00:00:00 |  500.50 |
++--------+--------+----------+------+----------+---------------------+---------+
+1 row in set (0.00 sec)
+
+mysql> delete from Customer where F_Name ='Ravi';
+Query OK, 1 row affected (0.16 sec)
+
+mysql> select * from Customer;
+Empty set (0.04 sec)
+
+mysql> INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Dob`, `Payment`) VALUES ('A05', 'Ravi', 'Shridhar', 'NA', '1989-02-15', 500.50);
+Query OK, 1 row affected (0.23 sec)
+
+mysql> INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Dob`, `Payment`) VALUES ('A01', 'Riya', 'Das', 'Baharu', '1999-02-15', 500.50);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Dob`, `Payment`) VALUES ('A02', 'Rima', 'Das', 'Joynagar', '1998-06-11', 700.50);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Dob`, `Payment`) VALUES ('A03', 'Akash', 'Manna', 'Kolkata', '2009-08-15', 1000.50);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO `riya`.`customer` (`cus_id`, `F_Name`, `L_Name`, `Area`, `Dob`, `Payment`) VALUES ('A04', 'Abir', 'Manna', 'Garia', '2006-10-18', 1250.50);
+Query OK, 1 row affected (0.14 sec)
+
+
+mysql> select * from Customer;
++--------+--------+----------+----------+------------+---------------------+---------+
+| cus_id | F_Name | L_Name   | Area     | Phone_No   | Dob                 | Payment |
++--------+--------+----------+----------+------------+---------------------+---------+
+| A01    | Riya   | Das      | Baharu   |     751236 | 1999-02-15 00:00:00 |  500.50 |
+| A02    | Rima   | Das      | Joynagar |    8115842 | 1998-06-11 00:00:00 |  700.50 |
+| A03    | Akash  | Manna    | Kolkata  |   73257412 | 2009-08-15 00:00:00 | 1000.50 |
+| A04    | Abir   | Manna    | Garia    | 7001339133 | 2006-10-18 00:00:00 | 1250.50 |
+| A05    | Ravi   | Shridhar | NA       |    6254812 | 1989-02-15 00:00:00 |  500.50 |
++--------+--------+----------+----------+------------+---------------------+---------+
+5 rows in set (0.00 sec)
+ update  Customer set Dob = '2004-06-10' where Cus_id = 'A05';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Customer;
++--------+--------+----------+----------+------------+---------------------+---------+
+| cus_id | F_Name | L_Name   | Area     | Phone_No   | Dob                 | Payment |
++--------+--------+----------+----------+------------+---------------------+---------+
+| A01    | Riya   | Das      | Baharu   |     751236 | 1999-02-15 00:00:00 |  500.50 |
+| A02    | Rima   | Das      | Joynagar |    8115842 | 1998-06-11 00:00:00 |  700.50 |
+| A03    | Akash  | Manna    | Kolkata  |   73257412 | 2009-08-15 00:00:00 | 1000.50 |
+| A04    | Abir   | Manna    | Garia    | 7001339133 | 2006-10-18 00:00:00 | 1250.50 |
+| A05    | Ravi   | Shridhar | NA       |    6254812 | 2004-06-10 00:00:00 |  500.50 |
++--------+--------+----------+----------+------------+---------------------+---------+
+5 rows in set (0.05 sec)
+
+mysql> delete from Customer where F_Name ='Ravi';
+Query OK, 1 row affected (0.31 sec)
+
+mysql> select * from Customer;
++--------+--------+--------+----------+------------+---------------------+---------+
+| cus_id | F_Name | L_Name | Area     | Phone_No   | Dob                 | Payment |
++--------+--------+--------+----------+------------+---------------------+---------+
+| A01    | Riya   | Das    | Baharu   |     751236 | 1999-02-15 00:00:00 |  500.50 |
+| A02    | Rima   | Das    | Joynagar |    8115842 | 1998-06-11 00:00:00 |  700.50 |
+| A03    | Akash  | Manna  | Kolkata  |   73257412 | 2009-08-15 00:00:00 | 1000.50 |
+| A04    | Abir   | Manna  | Garia    | 7001339133 | 2006-10-18 00:00:00 | 1250.50 |
++--------+--------+--------+----------+------------+---------------------+---------+
+4 rows in set (0.00 sec)
