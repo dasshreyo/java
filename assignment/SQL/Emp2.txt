@@ -37,39 +37,6 @@ mysql>
  Create table EMP_trainee(Emp_ID int (2),Name Varchar (10),Basic decimal (6, 2),Designation Varchar (10),Age int (2));
 Query OK, 0 rows affected, 2 warnings (2.82 sec)
 
-mysql> INSERT INTO EMP_trainee VALUES(6,'BIMAL',7000,'TRAINEE',25);
-Query OK, 1 row affected (0.30 sec)
-
-mysql> INSERT INTO EMP_trainee VALUES(3,'PAYAL',6300,'Trainee',25);
-Query OK, 1 row affected (0.11 sec)
-
-mysql> INSERT INTO EMP_trainee VALUES(1,'ROHIT',6700,'TRainee',24);
-Query OK, 1 row affected (0.12 sec)
-
-mysql> INSERT INTO EMP_trainee VALUES(5,'SUNITA',6230,'TRAINEE',26);
-Query OK, 1 row affected (0.22 sec)
-
-mysql> INSERT INTO EMP_trainee VALUES(4,'KUNAL',6700,'TRAINEE',28);
-Query OK, 1 row affected (0.24 sec)
-
-mysql> INSERT INTO EMP_trainee VALUES(2,'SUNIL',6200,'TRainee',27);
-Query OK, 1 row affected (0.16 sec)
-
-mysql> select * from EMP_trainee;
-+--------+--------+---------+-------------+------+
-| Emp_ID | Name   | Basic   | Designation | Age  |
-+--------+--------+---------+-------------+------+
-|      6 | BIMAL  | 7000.00 | TRAINEE     |   25 |
-|      3 | PAYAL  | 6300.00 | Trainee     |   25 |
-|      1 | ROHIT  | 6700.00 | TRainee     |   24 |
-|      5 | SUNITA | 6230.00 | TRAINEE     |   26 |
-|      4 | KUNAL  | 6700.00 | TRAINEE     |   28 |
-|      2 | SUNIL  | 6200.00 | TRainee     |   27 |
-+--------+--------+---------+-------------+------+
-6 rows in set (0.00 sec)
-Alter table EMP1 add  skills varchar(10);
-Query OK, 0 rows affected (2.44 sec)
-Records: 0  Duplicates: 0  Warnings: 0
 
 mysql> select * from EMP1;
 +------+--------+---------+-------------+------+--------+
