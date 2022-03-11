@@ -37,7 +37,7 @@ mysql>
  Create table EMP_trainee(Emp_ID int (2),Name Varchar (10),Basic decimal (6, 2),Designation Varchar (10),Age int (2));
 Query OK, 0 rows affected, 2 warnings (2.82 sec)
 
-
+ Insert into EMP_trainee  (select * from EMP1 where designation = 'trainee');
 mysql> select * from EMP1;
 +------+--------+---------+-------------+------+--------+
 | ID   | Name   | Basic   | Designation | Age  | skills |
