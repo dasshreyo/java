@@ -38,6 +38,15 @@ mysql>
 Query OK, 0 rows affected, 2 warnings (2.82 sec)
 
  Insert into EMP_trainee  (select * from EMP1 where designation = 'trainee');
+ 
+  select * from EMP_trainee;
++--------+--------+---------+-------------+------+
+| Emp_ID | Name   | Basic   | Designation | Age  |
++--------+--------+---------+-------------+------+
+|      4 | KUNAL  | 6700.00 | TRAINEE     |   28 |
+|      5 | SUNITA | 6230.00 | TRAINEE     |   26 |
+|      6 | BIMAL  | 7000.00 | TRAINEE     |   25 |
++--------+--------+---------+-------------+------+
 mysql> select * from EMP1;
 +------+--------+---------+-------------+------+--------+
 | ID   | Name   | Basic   | Designation | Age  | skills |
@@ -193,16 +202,13 @@ Records: 6  Duplicates: 0  Warnings: 0
 +------+--------+---------+--------------------+------+---------+------------+
 6 rows in set (0.00 sec)
 
-mysql> select * from EMP_trainee;
+mysql>  select * from EMP_trainee;
 +--------+--------+---------+-------------+------+
 | Emp_ID | Name   | Basic   | Designation | Age  |
 +--------+--------+---------+-------------+------+
-|      6 | BIMAL  | 7000.00 | TRAINEE     |   25 |
-|      3 | PAYAL  | 6300.00 | Trainee     |   25 |
-|      1 | ROHIT  | 6700.00 | TRainee     |   24 |
-|      5 | SUNITA | 6230.00 | TRAINEE     |   26 |
 |      4 | KUNAL  | 6700.00 | TRAINEE     |   28 |
-|      2 | SUNIL  | 6200.00 | TRainee     |   27 |
+|      5 | SUNITA | 6230.00 | TRAINEE     |   26 |
+|      6 | BIMAL  | 7000.00 | TRAINEE     |   25 |
 +--------+--------+---------+-------------+------+
 6 rows in set (0.13 sec)
  ALTER TABLE `riya`.`emp1` CHANGE COLUMN `Age` `Age_in_years` INT NULL DEFAULT NULL ;
@@ -225,32 +231,28 @@ alter table EMP_trainee drop  Age;
 Query OK, 0 rows affected (3.39 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> select * from EMP_trainee;
+
+select * from EMP_trainee;
 +--------+--------+---------+-------------+
 | Emp_ID | Name   | Basic   | Designation |
 +--------+--------+---------+-------------+
-|      6 | BIMAL  | 7000.00 | TRAINEE     |
-|      3 | PAYAL  | 6300.00 | Trainee     |
-|      1 | ROHIT  | 6700.00 | TRainee     |
-|      5 | SUNITA | 6230.00 | TRAINEE     |
 |      4 | KUNAL  | 6700.00 | TRAINEE     |
-|      2 | SUNIL  | 6200.00 | TRainee     |
+|      5 | SUNITA | 6230.00 | TRAINEE     |
+|      6 | BIMAL  | 7000.00 | TRAINEE     |
 +--------+--------+---------+-------------+
 6 rows in set (0.00 sec)
 alter table EMP_trainee drop column name,drop column Designation;
 Query OK, 0 rows affected (3.12 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> select * from EMP_trainee;
+
+ select * from EMP_trainee;
 +--------+---------+
 | Emp_ID | Basic   |
 +--------+---------+
-|      6 | 7000.00 |
-|      3 | 6300.00 |
-|      1 | 6700.00 |
-|      5 | 6230.00 |
 |      4 | 6700.00 |
-|      2 | 6200.00 |
+|      5 | 6230.00 |
+|      6 | 7000.00 |
 +--------+---------+
 6 rows in set (0.00 sec)
 
